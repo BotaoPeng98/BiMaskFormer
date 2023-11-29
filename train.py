@@ -13,7 +13,7 @@ from model.datasets import *
 torch.manual_seed(4321)
 np.random.seed(4321)
 
-torch.set_grad_enabled(False)
+torch.set_grad_enabled(True)
 torch.backends.cudnn.enabled = True
 torch.backends.cudnn.benchmark = True
 
@@ -194,7 +194,7 @@ if __name__ == "__main__":
     # SynNet.load_state_dict(checkpoint['SynNet_state_dict'], strict=True)
 
     BiFormer = BiFormer.cuda()
-    Upsampler = Upsampler.cuda()
+    Upsampler = Upsampler
     SynNet = SynNet.cuda()
 
     for param in chain(BiFormer.parameters(), Upsampler.parameters()):
